@@ -1,5 +1,5 @@
-#ifndef GOP_STRING_H
-#define GOP_STRING_H
+#ifndef GOP_STRING_H_
+#define GOP_STRING_H_
 
 #include <iostream>
 

@@ -1,5 +1,5 @@
-#ifndef GOP_VECTOR_H
-#define GOP_VECTOR_H
+#ifndef GOP_VECTOR_H_
+#define GOP_VECTOR_H_
 
 #include <cstdint>
 
