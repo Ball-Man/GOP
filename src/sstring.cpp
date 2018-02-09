@@ -39,6 +39,11 @@ String::~String()
 
 // Operators
 String& String::operator +(const String& string) { return operator+(string.ToCString()); }
+String& String::operator +(char c) 
+{ 
+  char string[] = { c, '\0' };
+  return operator+(string);
+}
 String& String::operator +(const char string[])
 {
   tmp_ = new char[strlen(string) + strlen(cstr_) + 1];
@@ -49,11 +54,15 @@ String& String::operator +(const char string[])
 }
 
 String& String::operator +=(const String& string) { return operator+=(string.ToCString()); }
+String& String::operator +=(char c)
+{
+  operator+(c);
+  return operator=(tmp_);
+}
 String& String::operator +=(const char string[])
 {
   operator+(string);
-  operator=(tmp_).ToCString();
-  return *this;
+  return operator=(tmp_);
 }
 
 String& String::operator =(const String& string) { return operator=(string.ToCString()); }
@@ -90,5 +99,15 @@ String& operator +(const char string1[], String& string2)
 std::ostream& operator <<(std::ostream& stream, const String& string)
 {
   stream << string.ToCString();
+  return stream;
+}
+
+// Cin
+std::istream& operator >>(std::istream& stream, String& string)
+{
+  char c = '\0';
+  while(stream.peek() != '\n')
+    string += stream.get();
+
   return stream;
 }
