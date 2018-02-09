@@ -1,11 +1,10 @@
 #ifndef GOP_GAMEBOARD_H_
 #define GOP_GAMEBOARD_H_
 
-#include <cstdint>
+#include "vector.h"
 #include "player.h"
 #include "deck.h"
 #include "square.h"
-#include "vector.h"
 
 // The Gameboard class is used as a manager for
 // the different game sections(players vs. squares vs. cards).

@@ -3,12 +3,14 @@
 
 #include "sstring.h"
 
+class Gameboard;
+
 class Square
 {
  public:
   Square(String& text);
 
-  virtual void Do(/* TODO: Add Game class parameter */) = 0;
+  virtual void Do(Gameboard& gameboard) = 0;
 
  protected:
   String text_;
