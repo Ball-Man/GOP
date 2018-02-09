@@ -1,17 +1,14 @@
 #include <iostream>
 #include "sstring.h"
 #include "vector.h"
+#include "random.h"
 
 int main(int argc, char const *argv[])
 {
-  String b;
+  rnd::Init();
 
-  std::cin >> b;
-  if("" == b)
-    std::cout << "EMPTY" << std::endl;
-
-  if(b == "ciao")
-    std::cout << "ANCHE A TE" << std::endl;
+  int n = rnd::RandInt(0, 10);
+  std::cout << n << std::endl;
 
   return 0;
 }
