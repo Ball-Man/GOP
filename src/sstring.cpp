@@ -37,6 +37,10 @@ String::~String()
     delete stmp_;
 }
 
+// Access elements
+char String::operator [](int index) const { return cstr_[index]; }
+char& String::operator [](int index) { return cstr_[index]; }
+
 // Operators
 String& String::operator +(const String& string) { return operator+(string.ToCString()); }
 String& String::operator +(char c) 
@@ -80,6 +84,24 @@ String& String::operator =(const char string[])
   return *this;
 }
 
+// Equality
+bool String::operator ==(const String& string) const { return operator==(string.ToCString()); }
+
+bool String::operator ==(const char string[]) const
+{
+  if(strlen(cstr_) != strlen(string))
+    return false;
+
+  for(int i = 0; i < strlen(cstr_); i++)
+    if(cstr_[i] != string[i])
+      return false;
+
+  return true;
+}
+
+bool String::operator !=(const String& string) const { return !operator==(string); }
+bool String::operator !=(const char string[]) const { return !operator==(string); }
+
 // CString conversion
 const char* String::ToCString() const { return cstr_; }
 
@@ -94,6 +116,8 @@ String& operator +(const char string1[], String& string2)
   string2 = tmp + string2;
   return string2;
 }
+
+bool operator ==(const char string1[], String& string2) { return string2 == string1; }
 
 // Cout
 std::ostream& operator <<(std::ostream& stream, const String& string)
