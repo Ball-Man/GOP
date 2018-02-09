@@ -13,6 +13,10 @@ class String
 
   ~String();
 
+  // Access elements
+  char operator [](int index) const;  // Const variant for read-only
+  char& operator [](int index);
+
   // Operators
   String& operator +(const String& string);
   String& operator +(const char string[]);
@@ -24,6 +28,13 @@ class String
 
   String& operator =(const String& string);
   String& operator =(const char string[]);
+
+  // Equality
+  bool operator ==(const String& string) const;
+  bool operator ==(const char string[]) const;
+
+  bool operator !=(const String& string) const;
+  bool operator !=(const char string[]) const;
 
   // CString conversion
   const char* ToCString() const;
@@ -41,6 +52,7 @@ class String
 
 // Global operator for commutation
 String& operator +(const char string1[], String& string2);
+bool operator ==(const char string1[], String& string2);
 
 // Cout
 std::ostream& operator <<(std::ostream& stream, const String& string);
