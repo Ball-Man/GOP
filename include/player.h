@@ -1,7 +1,7 @@
 #ifndef GOP_PLAYER_H_
 #define GOP_PLAYER_H_
 
-#include "string.h"
+#include "sstring.h"
 
 // Class for player identification
 class Player
