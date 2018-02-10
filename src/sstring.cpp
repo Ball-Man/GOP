@@ -130,7 +130,7 @@ std::ostream& operator <<(std::ostream& stream, const String& string)
 std::istream& operator >>(std::istream& stream, String& string)
 {
   char c = '\0';
-  while(stream.peek() != '\n')
+  while(stream.peek() > 32 || stream.peek() == '\0')
     string += stream.get();
 
   return stream;
