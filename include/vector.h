@@ -82,7 +82,7 @@ class Vector
 
   void Erase(int index)
   {
-    for(int i = --length_; i > index; i++)
+    for(int i = --length_; i > index; i--)
       array_[i - 1] = array_[i];
   }
 

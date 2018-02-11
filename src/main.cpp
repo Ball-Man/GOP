@@ -5,10 +5,16 @@
 
 int main(int argc, char const *argv[])
 {
-  rnd::Init();
+  String b;
+  getline(std::cin, b);
 
-  int n = rnd::RandInt(0, 10);
-  std::cout << n << std::endl;
+  std::cout << "Actual string: " << b << "\n";
+
+  if("" == b)
+    std::cout << "EMPTY" << std::endl;
+
+  if(b == "ciao")
+    std::cout << "ANCHE A TE" << std::endl;
 
   return 0;
 }
