@@ -140,7 +140,7 @@ std::istream& getline(std::istream& stream, String& string)
 {
   char c[256];
   stream.getline(c, 255);
-  string += c;
+  string = c;
 
   return stream;
 }
