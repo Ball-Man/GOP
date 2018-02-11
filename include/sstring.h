@@ -56,6 +56,9 @@ bool operator ==(const char string1[], String& string2);
 // Cout
 std::ostream& operator <<(std::ostream& stream, const String& string);
 
+// Cin
+std::istream& operator >>(std::istream& stream, String& string);
+
 // Getline
 std::istream& getline(std::istream& stream, String& string);
 
