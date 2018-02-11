@@ -38,8 +38,7 @@ String::~String()
 }
 
 // Access elements
-char String::operator [](int index) const { return cstr_[index]; }
-char& String::operator [](int index) { return cstr_[index]; }
+char& String::operator [](int index) const { return cstr_[index]; }
 
 // Operators
 String& String::operator +(const String& string) { return operator+(string.ToCString()); }
@@ -126,12 +125,12 @@ std::ostream& operator <<(std::ostream& stream, const String& string)
   return stream;
 }
 
-// Cin
-std::istream& operator >>(std::istream& stream, String& string)
+// getlien
+std::istream& getline(std::istream& stream, String& string)
 {
-  char c = '\0';
-  while(stream.peek() > 32 || stream.peek() == '\0')
-    string += stream.get();
+  char c[256];
+  stream.getline(c, 255);
+  string += c;
 
   return stream;
 }

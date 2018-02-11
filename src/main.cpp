@@ -6,7 +6,10 @@ int main(int argc, char const *argv[])
 {
   String b;
 
-  std::cin >> b;
+  getline(std::cin, b);
+
+  std::cout << "Actual string: " << b << "\n";
+
   if("" == b)
     std::cout << "EMPTY" << std::endl;
 
