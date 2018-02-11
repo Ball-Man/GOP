@@ -82,8 +82,9 @@ class Vector
 
   void Erase(int index)
   {
-    for(int i = --length_; i > index; i--)
-      array_[i - 1] = array_[i];
+    length_--;
+    for(int i = index; i < length_; i++)
+      array_[i] = array_[i + 1];
   }
 
   void Clear() { length_ = 0; }
