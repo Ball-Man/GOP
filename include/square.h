@@ -8,9 +8,11 @@ class Gameboard;
 class Square
 {
  public:
-  Square(String& text);
+  Square(const String& text);
 
   virtual void Do(Gameboard& gameboard) = 0;
+
+  const String& Text() const;
 
  protected:
   String text_;

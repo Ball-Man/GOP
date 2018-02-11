@@ -29,7 +29,7 @@ class Player
   char Symbol() const;
 
  private:
-  const int kDefaultCoins = 10;
+  static const int kDefaultCoins = 10;
 
   String name_;
 

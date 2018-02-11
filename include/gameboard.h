@@ -13,18 +13,26 @@
 class Gameboard
 {
  public:
-  Gameboard(Vector<Square*>& squares);
+  Gameboard();
+  Gameboard(const Gameboard& gameboard) = delete;   // No copies
   ~Gameboard();
+
+  Gameboard& operator =(const Gameboard& gameboard) = delete;   // Quote: No copies
 
   // Getters / Setters
   Deck& Cards();
 
   Vector<Player>& Players();
+  Vector<Square*>& Board();
 
   Player& Playing() const;
+  Square& OnSquare() const;
+
+  int Squares() const;
 
   int PlayerNumber() const;
   void SetPlayerNumber(int n);
+  void NextPlayer();
 
  private:
   Deck deck_;

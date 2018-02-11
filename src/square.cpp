@@ -2,7 +2,9 @@
 #include "gameboard.h"
 
 /// *** PUBLIC *** ///
-Square::Square(String& text)
+Square::Square(const String& text)
 {
   text_ = text;
 }
+
+const String& Square::Text() const { return text_; }

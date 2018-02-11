@@ -43,5 +43,5 @@ const Card& Deck::Draw() { return *deck_.Pop(); }
 bool Deck::Empty() const { return deck_.Length() == 0; }
 
 // Deck creation
-bool Deck::FromFile(String& filename) { /* TODO: Add from file implementation */ }
+bool Deck::FromFile(const String& filename) { /* TODO: Add from file implementation */ return true; }
 

@@ -11,9 +11,11 @@ class Gameboard;
 class Card
 {
  public:
-  Card(String& text);
+  Card(const String& text);
 
   virtual void Do(Gameboard& gameboard) = 0;   // Abstract method
+
+  const String& Text() const;
 
  protected:
   String text_;

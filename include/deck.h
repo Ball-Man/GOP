@@ -20,7 +20,7 @@ class Deck
     bool Empty() const;
 
     // Deck creation
-    bool FromFile(String& filename);
+    bool FromFile(const String& filename);
 
   private:
     Vector<Card*> deck_;
