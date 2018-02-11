@@ -125,7 +125,17 @@ std::ostream& operator <<(std::ostream& stream, const String& string)
   return stream;
 }
 
-// getlien
+// Cin
+std::istream& operator >>(std::istream& stream, String& string)
+{
+  char c[256];
+  stream >> c;
+  string += c;
+
+  return stream;
+}
+
+// Getline
 std::istream& getline(std::istream& stream, String& string)
 {
   char c[256];
