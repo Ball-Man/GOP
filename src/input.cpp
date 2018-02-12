@@ -34,5 +34,7 @@ bool input::ReadChar(char& out)
   if(s.Length() == 0 || s.Length() > 1)
     return false;
 
-  return s[0];
+  out = s[0];
+
+  return true;
 }

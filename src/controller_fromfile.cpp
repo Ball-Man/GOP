@@ -6,7 +6,7 @@
 #include "random.h"
 #include "include_squares.h"
 
-bool Controller::FromFile(const String& squares_file, const String& cards_file)
+bool Controller::FromFile(const String& squares_file, const String& cards_file, const String& gop_file)
 {
   if(!gameboard_.Cards().FromFile(cards_file))
   {
@@ -14,6 +14,25 @@ bool Controller::FromFile(const String& squares_file, const String& cards_file)
     quit_ = true;
     return false;
   }
+
+
+  // Read GOP logo
+  std::ifstream gop_fin(gop_file.ToCString());
+  if(!gop_fin.is_open())
+  {
+    std::cout << "--- Missing file: " << gop_file << "\n";
+    quit_ = true;
+    return false;
+  }
+
+  while(!gop_fin.eof())
+  {
+    String tmp;
+    getline(gop_fin, tmp);
+    gop_.Push(tmp);
+  }
+
+  gop_fin.close();
 
   std::ifstream squares_fin(squares_file.ToCString());
   Vector<Square*> tmp_squares;
@@ -37,12 +56,9 @@ bool Controller::FromFile(const String& squares_file, const String& cards_file)
 
     squares_fin >> type >> text;
 
-    if(!squares_fin.eof())      // if correctly read
+    switch((Squares)type)     // Select which square type to create
     {
-      switch((Squares)type)     // Select which square type to create
-      {
-        
-      }
+      
     }
   }
 
