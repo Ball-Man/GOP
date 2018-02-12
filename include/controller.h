@@ -32,7 +32,6 @@ class Controller
   static const String kGopFile;
   static const int kMinSquares = 40;
   static const int kMaxSquares = 53;
-  static const int kGridWidth = 100;
 
   Vector<String> gop_;
   Gameboard gameboard_;

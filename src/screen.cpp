@@ -31,3 +31,14 @@ void screen::Clear()
     std::system("cls");
   #endif
 }
+
+void screen::Out(const String& string)
+{
+  for(int i = 0; i < string.Length(); i++)
+  {
+    if(i % kGridWidth == 0 && i != 0)
+      std::cout << "\n";
+    std::cout << string[i];
+  }
+  std::cout << "\n";
+}

@@ -54,11 +54,51 @@ bool Controller::FromFile(const String& squares_file, const String& cards_file, 
     int type;
     String text;
 
-    squares_fin >> type >> text;
+    squares_fin >> type;
+
+    char c = '\0';
+    squares_fin.get();
+    while(c != ';')
+    {
+      c = squares_fin.get();
+      if(c != ';')
+        text += c;
+    }
+    squares_fin.get();
 
     switch((Squares)type)     // Select which square type to create
     {
-      
+      case Squares::FORWARD:
+      {
+        int steps;
+        squares_fin >> steps;
+        tmp_squares.Push(new SquareForward(text, steps));
+        break;
+      }
+
+      case Squares::BACK:
+      {
+        int steps;
+        squares_fin >> steps;
+        tmp_squares.Push(new SquareBack(text, steps));
+        break;
+      }
+
+      case Squares::STOP:
+        tmp_squares.Push(new SquareStop(text));
+        break;
+
+      case Squares::COINS:
+      {
+        int coins;
+        squares_fin >> coins;
+        tmp_squares.Push(new SquareCoins(text, coins));
+        break;
+      }
+
+      case Squares::REROLL:
+        tmp_squares.Push(new SquareReroll(text));
+        break;
     }
   }
 
@@ -71,6 +111,9 @@ bool Controller::FromFile(const String& squares_file, const String& cards_file, 
     gameboard_.Board().Push(tmp_squares[pos]);
     tmp_squares.Erase(pos);
   }
+
+  // Loop safety
+  gameboard_.Board().Insert(new SquareEmpty("Empty station, just wait for the next train..."), 0);
 
   return true;
 }

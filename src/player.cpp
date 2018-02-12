@@ -8,13 +8,12 @@ Player::Player()
   pos_ = 0;
   coins_ = kDefaultCoins;
   s_ = '\0';
+  stopped_ = false;
 }
 
-Player::Player(String& name, char s)
+Player::Player(String& name, char s) : Player()
 {
   name_ = name;
-  pos_ = 0;
-  coins_ = kDefaultCoins;
   s_ = s;
 }
 
@@ -35,3 +34,7 @@ int Player::Coins() const { return coins_; }
 // Getters for player's symbol and name
 const String& Player::Name() const { return name_; }
 char Player::Symbol() const { return s_; }
+
+// Stop
+bool Player::Stopped() const { return stopped_; }
+void Player::SetStopped(bool stopped) { stopped_ = stopped; }

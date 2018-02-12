@@ -28,6 +28,10 @@ class Player
   const String& Name() const;
   char Symbol() const;
 
+  // Stop
+  bool Stopped() const;
+  void SetStopped(bool stopped);
+
  private:
   static const int kDefaultCoins = 10;
 
@@ -36,6 +40,7 @@ class Player
   int pos_;
   int coins_;
   char s_;
+  bool stopped_;
 };
 
 #endif

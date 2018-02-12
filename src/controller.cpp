@@ -90,6 +90,13 @@ void Controller::Init()
 
 void Controller::Do()
 {
+  if(gameboard_.Playing().Stopped())
+  {
+    gameboard_.Playing().SetStopped(false);
+    gameboard_.NextPlayer();
+    return;
+  }
+
   screen::Clear();
   DrawGrid();
 
@@ -113,19 +120,25 @@ void Controller::Do()
     if(gameboard_.Playing().Position() >= gameboard_.Squares()) // Check if won the game
     {
       Win(gameboard_.Playing());
-      quit_ = true;
       return;
     }
 
     // If not...
     DrawGOP();
-    std::cout << gameboard_.OnSquare().Text() << "\n";
+    std::cout << "\n";
+    screen::Out(gameboard_.OnSquare().Text());
     screen::Separe();
 
     gameboard_.OnSquare().Do(gameboard_);
-    screen::Wait();
 
-    std::cout << "\nTime for the next player!";
+    // Check if won the game after the square effect
+    if(gameboard_.Playing().Position() >= gameboard_.Squares())
+    {
+      Win(gameboard_.Playing());
+      return;
+    }
+
+    std::cout << "Time for the next player!";
     gameboard_.NextPlayer();
 
     screen::Wait();
@@ -166,7 +179,7 @@ void Controller::DrawGrid()
 
   const int square_width = 3;
   const int square_height = 3;
-  int columns = kGridWidth / square_width;
+  int columns = screen::kGridWidth / square_width;
   
   std::cout << "\n-";
   for(int i = 0; i < columns; i++)
@@ -237,9 +250,10 @@ void Controller::DrawGOP()
 void Controller::Win(const Player& player)
 {
   screen::Clear();
-  screen::Separe();
+  DrawGOP();
 
   std::cout << player.Name() << " won the game!\nSee you space cowboy...\n";
+  quit_ = true;
 
   screen::Separe();
   screen::Wait();
