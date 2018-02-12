@@ -23,5 +23,11 @@ void screen::Separe()
 
 void screen::Clear()
 {
-  std::system("clear");
+  #ifdef __unix__
+    std::system("clear");
+  #endif
+
+  #ifdef _WIN32
+    std::system("cls");
+  #endif
 }
