@@ -8,7 +8,7 @@ class SquareBack : public Square
  public:
   SquareBack(const String& text, int steps);
   
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 
  private:
   int steps_;

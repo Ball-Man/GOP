@@ -8,7 +8,7 @@ class CardNothing : public Card
  public:
   CardNothing(const String& text);
   
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 };
 
 #endif

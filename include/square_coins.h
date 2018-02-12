@@ -8,7 +8,7 @@ class SquareCoins : public Square
  public:
   SquareCoins(const String& text, int coins);
   
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 
  private:
   int coins_;

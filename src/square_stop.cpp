@@ -5,7 +5,7 @@
 
 SquareStop::SquareStop(const String& text) : Square(text) { }
 
-void SquareStop::Do(Gameboard& gameboard)
+void SquareStop::Do(Gameboard& gameboard) const
 {
   gameboard.Playing().SetStopped(true);
   screen::Wait();

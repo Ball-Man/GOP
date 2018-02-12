@@ -8,7 +8,7 @@ class SquareReroll : public Square
  public:
   SquareReroll(const String& text);
   
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 };
 
 #endif

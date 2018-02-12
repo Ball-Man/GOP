@@ -4,6 +4,7 @@
 #include "square_empty.h"
 #include "square_forward.h"
 #include "square_back.h"
+#include "square_draw.h"
 #include "square_stop.h"
 #include "square_coins.h"
 #include "square_reroll.h"

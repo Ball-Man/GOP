@@ -8,7 +8,7 @@ SquareForward::SquareForward(const String& text, int steps) : Square(text)
   steps_ = steps;
 }
 
-void SquareForward::Do(Gameboard& gameboard)
+void SquareForward::Do(Gameboard& gameboard) const
 {
   gameboard.Playing().StepForward(steps_);
   screen::Wait();

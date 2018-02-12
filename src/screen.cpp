@@ -42,3 +42,27 @@ void screen::Out(const String& string)
   }
   std::cout << "\n";
 }
+
+void screen::DrawCard(const Card& card)
+{
+  for(int i = 0; i < kCardWidth + 4; i++)
+      std::cout << "-";
+
+  std::cout << "\n| ";
+  for(int i = 0; i < kCardWidth * kCardHeight; i++)
+  {
+    if(i % kCardWidth == 0 && i != 0)
+      std::cout << " |\n| ";
+
+    if(i < card.Text().Length())
+      std::cout << card.Text()[i];
+    else
+      std::cout << " ";
+  }
+  std::cout << " |\n";
+
+  for(int i = 0; i < kCardWidth + 4; i++)
+      std::cout << "-";
+
+  std::cout << "\n";
+}

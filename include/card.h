@@ -13,7 +13,7 @@ class Card
  public:
   Card(const String& text);
 
-  virtual void Do(Gameboard& gameboard) = 0;   // Abstract method
+  virtual void Do(Gameboard& gameboard) const = 0;   // Abstract method
 
   const String& Text() const;
 

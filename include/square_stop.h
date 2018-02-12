@@ -8,7 +8,7 @@ class SquareStop : public Square
  public:
   SquareStop(const String& text);
 
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 };
 
 #endif

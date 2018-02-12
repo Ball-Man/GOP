@@ -8,7 +8,7 @@ class SquareForward : public Square
  public:
   SquareForward(const String& text, int steps);
   
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
 
  private:
   int steps_;

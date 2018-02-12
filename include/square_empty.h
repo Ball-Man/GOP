@@ -8,7 +8,7 @@ class SquareEmpty : public Square
  public:
   SquareEmpty(const String& name);
 
-  void Do(Gameboard& gameboard);
+  void Do(Gameboard& gameboard) const;
   
 };
 

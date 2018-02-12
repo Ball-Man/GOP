@@ -8,7 +8,7 @@ SquareBack::SquareBack(const String& text, int steps) : Square(text)
   steps_ = steps;
 }
 
-void SquareBack::Do(Gameboard& gameboard)
+void SquareBack::Do(Gameboard& gameboard) const
 {
   gameboard.Playing().StepBack(steps_);
   screen::Wait();

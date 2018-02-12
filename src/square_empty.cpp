@@ -6,7 +6,7 @@
 SquareEmpty::SquareEmpty(const String& text) : Square(text) { }
 
 // A nothing-card does nothing, logical(?)
-void SquareEmpty::Do(Gameboard& gameboard) 
+void SquareEmpty::Do(Gameboard& gameboard) const
 {
   screen::Wait(); 
 }

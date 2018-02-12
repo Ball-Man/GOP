@@ -10,7 +10,7 @@ class Square
  public:
   Square(const String& text);
 
-  virtual void Do(Gameboard& gameboard) = 0;
+  virtual void Do(Gameboard& gameboard) const = 0;
 
   const String& Text() const;
 

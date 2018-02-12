@@ -84,6 +84,10 @@ bool Controller::FromFile(const String& squares_file, const String& cards_file, 
         break;
       }
 
+      case Squares::DRAW:
+        tmp_squares.Push(new SquareDraw(text));
+        break;
+
       case Squares::STOP:
         tmp_squares.Push(new SquareStop(text));
         break;

@@ -6,7 +6,7 @@
 
 SquareReroll::SquareReroll(const String& text) : Square(text) { }
 
-void SquareReroll::Do(Gameboard& gameboard)
+void SquareReroll::Do(Gameboard& gameboard) const
 {
   int die = rnd::RandInt(1, 6);
 
