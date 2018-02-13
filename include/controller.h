@@ -30,8 +30,8 @@ class Controller
   static const String kSquaresFile;
   static const String kCardsFile;
   static const String kGopFile;
-  static const int kMinSquares = 30;
-  static const int kMaxSquares = 40;
+  static const int kMinSquares = 20;
+  static const int kMaxSquares = 50;
 
   Vector<String> gop_;
   Gameboard gameboard_;
