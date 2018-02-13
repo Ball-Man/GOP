@@ -1,5 +1,3 @@
-# Unix makefile
-
 EXE = gop
 BUILD_DIR = build
 SRC_DIR = src
@@ -20,4 +18,4 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(BUILD_DIR)/*
+	rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/gop*
